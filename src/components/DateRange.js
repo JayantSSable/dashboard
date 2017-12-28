@@ -1,13 +1,17 @@
 import { DatePicker } from 'antd';
-import React, { Component } from 'react';
+import React from 'react';
 require('antd/dist/antd.css');
 
 class DateRange extends React.Component {
-  state = {
-    startValue: null,
-    endValue: null,
-    endOpen: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      startValue: null,
+      endValue: null,
+      endOpen: false,
+    };
+  }
+  
 
   disabledStartDate = (startValue) => {
     const endValue = this.state.endValue;
@@ -28,7 +32,7 @@ class DateRange extends React.Component {
   onChange = (field, value) => {
     this.setState({
       [field]: value,
-    });
+    }, () => this.props.onUpdate(this.state));
   }
 
   onStartChange = (value) => {
