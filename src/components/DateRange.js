@@ -1,4 +1,6 @@
 import { DatePicker } from 'antd';
+import React, { Component } from 'react';
+require('antd/dist/antd.css');
 
 class DateRange extends React.Component {
   state = {
